@@ -37,7 +37,7 @@ defmodule WeatherApp.Worker do
 
     case temperature_of(location) do
       {:ok, temp} ->
-        {:reply, "#{temp}°C", new_stats}
+        {:reply, {"#{location}", "#{temp}°C"}, new_stats}
 
       _ ->
         {:reply, :error, stats}

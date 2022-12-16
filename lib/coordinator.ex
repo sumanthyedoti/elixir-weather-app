@@ -8,8 +8,9 @@ defmodule WeatherApp.Coordinator do
   """
   def loop(results \\ [], results_expected) do
     receive do
-      {:ok, result} ->
-        new_results = [result | results]
+      {:city, city} ->
+        temperature = WeatherApp.Worker.get_temperature(city)
+        new_results = [temperature | results]
 
         if results_expected == Enum.count(new_results) do
           send(self(), :exit)
