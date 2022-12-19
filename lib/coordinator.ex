@@ -20,7 +20,9 @@ defmodule WeatherApp.Coordinator do
       :exit ->
         results
         |> Enum.sort(fn city1, city2 -> elem(city1, 0) < elem(city2, 0) end)
-        |> Enum.each(fn city -> IO.puts("#{elem(city, 0)} -- #{elem(city, 1)}") end)
+        |> Enum.each(fn city ->
+          IO.puts("#{String.pad_trailing(elem(city, 0), 14)}--  #{elem(city, 1)}")
+        end)
 
       _ ->
         loop(num_of_results, results)

@@ -25,6 +25,39 @@ defmodule WeatherApp do
     :ok
   end
 
+  @large_list_cities [
+    "London",
+    "New York",
+    "Bengaluru",
+    "Singapore",
+    "Hyderabad",
+    "Tirupati",
+    "Mumbai",
+    "Pune",
+    "Chennai",
+    "Delhi",
+    "Sydney",
+    "Melborne",
+    "Tokyo",
+    "Mexico City",
+    "Cairo",
+    "Lisbon",
+    "Romes",
+    "Jakarta",
+    "Budapest",
+    "Paris",
+    "Beijing",
+    "Brasilia",
+    "Dhaka",
+    "Kabul",
+    "Kolkata",
+    "Jaipur",
+    "Srinagar",
+    "Puri"
+  ]
+
+  def get_cities_list(), do: @large_list_cities
+
   def get_stats() do
     WeatherApp.Worker.get_stats()
   end
