@@ -8,6 +8,7 @@ defmodule WeatherApp.Worker do
   end
 
   def get_temperature(location) do
+    Process.sleep(1000)
     GenServer.call(@name, {:location, location})
   end
 
