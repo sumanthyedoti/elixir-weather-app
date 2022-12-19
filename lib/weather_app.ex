@@ -16,6 +16,7 @@ defmodule WeatherApp do
 
     cities
     |> Enum.map(fn city ->
+      # spawn, not to block
       spawn(fn ->
         city_temperature = WeatherApp.Worker.get_temperature(city)
         send(coordiantor_pid, {:result, city_temperature})
@@ -32,6 +33,7 @@ defmodule WeatherApp do
     "Singapore",
     "Hyderabad",
     "Tirupati",
+    "California",
     "Mumbai",
     "Pune",
     "Chennai",
@@ -62,7 +64,7 @@ defmodule WeatherApp do
     WeatherApp.Worker.get_stats()
   end
 
-  def reselt() do
+  def reset_stats() do
     WeatherApp.Worker.reset_stats()
   end
 

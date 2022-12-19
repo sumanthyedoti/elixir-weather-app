@@ -1,21 +1,23 @@
 # WeatherApp
 
-**TODO: Add description**
+- fetches temperatures of a list of cities parallelly
 
-## Installation
+### run
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `weather_app` to your list of dependencies in `mix.exs`:
+- cd into the project directory
 
-```elixir
-def deps do
-  [
-    {:weather_app, "~> 0.1.0"}
-  ]
-end
+```
+iex -S mix
 ```
 
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at <https://hexdocs.pm/weather_app>.
+### API
 
+```
+WeatherApp.start
+WeatherApp.temperature_of "Singapore"
+WeatherApp.temperatures_of ["Bengaluru", "California"]
+WeatherApp.temperatures_of WeatherApp.get_cities_list
+WeatherApp.get_stats
+WeatherApp.reset_stats
+WeatherApp.stop
+```
